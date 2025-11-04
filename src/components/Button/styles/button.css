@@ -1,0 +1,42 @@
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  border: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn.primary {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.1)
+  );
+  color: white;
+}
+
+.btn.primary:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  border: rgba(255, 255, 255, 0.4);
+}
+
+.btn.secondary:hover {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.1)
+  );
+  color: white;
+}

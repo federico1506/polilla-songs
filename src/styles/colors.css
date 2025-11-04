@@ -8,32 +8,32 @@
   --text-primary: #f5f6fa;
   --text-secondary: #c7c9d9;
   --text-muted: #8a8db2;
-  
+
   /* Colores de fondo */
   --bg-primary: #181824;
   --bg-secondary: #232332;
   --bg-card: #232342;
-  
+
   /* Colores de acento */
   --accent-gold: #d4af37;
   --accent-red: #8b0000;
   --accent-purple: #4a148c;
-  
+
   /* Gradientes */
   --gradient-primary: linear-gradient(135deg, #a18aff 0%, #7f8fff 50%, #6ec3f4 100%);
   --gradient-accent: linear-gradient(135deg, #a18aff 0%, #6ec3f4 100%);
-  
+
   /* Sombras */
   --shadow-light: 0 2px 8px rgba(97, 97, 160, 0.15);
   --shadow-medium: 0 4px 16px rgba(97, 97, 160, 0.25);
   --shadow-heavy: 0 8px 32px rgba(97, 97, 160, 0.35);
-  
+
   /* Bordes */
   --border-radius: 14px;
   --border-color: #3a3a5a;
-  
+
   /* Transiciones */
   --transition-fast: 0.2s cubic-bezier(.4,0,.2,1);
   --transition-medium: 0.3s cubic-bezier(.4,0,.2,1);
   --transition-slow: 0.5s cubic-bezier(.4,0,.2,1);
-} 
+}

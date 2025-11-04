@@ -1,0 +1,20 @@
+# TODO — Polilla Songs
+
+- [ ] (P1) Cambiar el cono de arriba del Vite y ponerle el logo de Polilla
+    - Ubicación: header / index
+    - Nota: reemplazar SVG/favicon
+
+- [ ] (P2) Hacer un loading (animación)
+    - Ideas: spinner, skeleton, overlay
+
+- [ ] (P2) Hacer un masonry con las fotos
+    - Opciones: CSS Grid, Masonry lib
+
+- [ ] (P3) Ordenar la parte de los integrantes de la banda
+    - Revisar orden, roles y estilos
+
+- [ ] (P3) Agregar un about
+    - Contenido: descripción breve, contacto
+
+- [ ] (P2) Agregar suavizado con alguna librería (motion / spring)
+    - Opciones: Framer Motion, react-spring, Motion One
