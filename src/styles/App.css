@@ -36,15 +36,6 @@ body {
   background: var(--accent-gold);
 }
 
-/* Header */
-.header {
-  background: var(--gradient-primary);
-  height: 100vh;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
 .band-name {
   font-family: 'Fira Sans', 'Inter', sans-serif;
   font-size: 4rem;
@@ -74,30 +65,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.logo-polilla-img {
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
-  filter: drop-shadow(0 0 0 white)
-          drop-shadow(1px 0 0 white)
-          drop-shadow(-1px 0 0 white)
-          drop-shadow(0 1px 0 white)
-          drop-shadow(0 -1px 0 white);
-}
-
-.nombre-polilla-img {
-  max-width: 480px;
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
-  filter: drop-shadow(0 0 0 white)
-          drop-shadow(1px 0 0 white)
-          drop-shadow(-1px 0 0 white)
-          drop-shadow(0 1px 0 white)
-          drop-shadow(0 -1px 0 white);
 }
 
 /* Sección de integrantes */

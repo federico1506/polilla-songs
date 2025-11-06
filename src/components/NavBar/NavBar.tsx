@@ -1,22 +1,34 @@
-import React from "react";
+// Styles
 import "./styles/navbar.css";
-import { Home, User, Search, Settings } from "lucide-react";
+
+// Router
+import { Link } from "react-router-dom";
+
+// Icons
+import { Music, Image, Info, CalendarDays, Home } from "lucide-react";
 
 const NavBar = () => {
   return (
     <div className="navbar">
-      <div className="bubble">
+      <Link to="/" className="bubble" title="Volver al menú">
         <Home size={22} />
-      </div>
-      <div className="bubble">
-        <Search size={22} />
-      </div>
-      <div className="bubble">
-        <User size={22} />
-      </div>
-      <div className="bubble">
-        <Settings size={22} />
-      </div>
+      </Link>
+
+      <Link to="/canciones" className="bubble" title="Canciones">
+        <Music size={22} />
+      </Link>
+
+      <Link to="/fotos" className="bubble" title="Fotos">
+        <Image size={22} />
+      </Link>
+
+      <Link to="/informacion" className="bubble" title="Información">
+        <Info size={22} />
+      </Link>
+
+      <Link to="/recitales" className="bubble" title="Recitales">
+        <CalendarDays size={22} />
+      </Link>
     </div>
   );
 };
