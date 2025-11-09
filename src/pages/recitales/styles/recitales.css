@@ -1,0 +1,75 @@
+.recitales-container {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: white;
+}
+
+.recitales-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+}
+
+/* Lista general */
+.recitales-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Cada recital ocupa todo el ancho */
+.recital-item {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.recital-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Info */
+.recital-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.recital-lugar {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.recital-ciudad {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.recital-fecha {
+  color: #b4b4b4;
+  font-size: 0.95rem;
+}
+
+.recital-descripcion {
+  margin-top: 0.8rem;
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .recital-item {
+    padding: 1.25rem;
+  }
+}

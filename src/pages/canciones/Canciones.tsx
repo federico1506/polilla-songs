@@ -1,18 +1,10 @@
 import { useState } from 'react'
-import { bandMembers } from '../../data/band-members'
 import { allSongs, type Song } from '../../data/songs'
 import logoPolilla from '../../assets/PNG POLILLA - LOGO 01.png'
-import { FaDrum, FaMicrophoneAlt, FaGuitar } from 'react-icons/fa'
-import { GiPianoKeys, GiGuitarBassHead } from 'react-icons/gi'
 import '../../styles/App.css'
+import './styles/canciones.css'
+import { sectionWords } from '../../constants/constants'
 
-const instrumentIcons: Record<string, React.ReactNode> = {
-  Batería: <FaDrum size={32} color="#a18aff" title="Batería" />,
-  Voz: <FaMicrophoneAlt size={32} color="#a18aff" title="Voz" />,
-  Piano: <GiPianoKeys size={32} color="#a18aff" title="Piano" />,
-  Bajo: <GiGuitarBassHead size={32} color="#a18aff" title="Bajo" />,
-  Guitarra: <FaGuitar size={32} color="#a18aff" title="Guitarra" />,
-};
 
 const Canciones = () => {
  const [selectedSong, setSelectedSong] = useState<Song | null>(null);
@@ -33,18 +25,6 @@ const Canciones = () => {
   const formatLyrics = (lyrics: string[]) => {
     return lyrics.map((line, index) => {
       if (line.trim() === "") return <br key={index} />;
-      // Palabras clave que deben ir en amarillo SOLO si la línea es exactamente igual, o igual + número, o igual + FINAL
-      // Mover a otro archivo
-      const sectionWords = [
-        "ESTROFA",
-        "ESTRIBILLO",
-        "SOLO",
-        "PUENTE",
-        "RAP",
-        "MODULA",
-        "PRE-ESTRIBILLO",
-        "NANANA",
-      ];
       const upperLine = line.trim().toUpperCase();
       const isSection = sectionWords.some(
         (word) =>
@@ -67,10 +47,7 @@ const Canciones = () => {
 
 
   return (
-
         <div className="App">
-
-          {/* Sección de Canciones */}
           <section className="songs-section">
             <div className="container">
               <h2 className="section-title">Canciones</h2>
@@ -100,41 +77,6 @@ const Canciones = () => {
                     <div className="song-preview">
                       {getSongPreview(song.lyrics)}
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Separador visual entre canciones e integrantes */}
-          <div style={{ height: "60px" }} />
-
-          {/* Sección de Integrantes al final */}
-          <section className="members-section">
-            <div className="container members-list-uno">
-              <h2 className="section-title">Integrantes</h2>
-              <div className="members-grid-uno">
-                {bandMembers.map((member, index) => (
-                  <div
-                    key={member.name}
-                    className="member-card-uno fade-in-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="member-info-uno">
-                      <div className="member-icon-uno">
-                        {instrumentIcons[member.instrument]}
-                      </div>
-                      <div>
-                        <h3 className="member-name">{member.name}</h3>
-                        <p className="member-role">{member.role}</p>
-                        <p className="member-instrument">{member.instrument}</p>
-                      </div>
-                    </div>
-                    <img
-                      src={logoPolilla}
-                      alt="Logo Polilla"
-                      className="member-logo-uno"
-                    />
                   </div>
                 ))}
               </div>
