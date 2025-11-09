@@ -6,17 +6,11 @@ import { useSpring, animated } from "@react-spring/web"
 import nombrePolilla from "../../assets/PNG POLILLA 01.png"
 import logoPolilla from "../../assets/PNG POLILLA - LOGO 01.png"
 
-// Components
-import Button from "../../components/Button/Button"
-import "./styles/Menu.css"
-import ModalFollow from "../../components/ModalFollow/ModalFollow";
-
 // Glitch
 import { PowerGlitch } from "powerglitch";
-import { Link } from "react-router-dom";
+import MenuButtons from "../../components/MenuButtons/MenuButtons"
 
 const Menu = () => {
-  const [open, setOpen] = React.useState(false);
   const logoSpring = useSpring({
     from: { opacity: 0, transform: "translateY(-20px) scale(0.95)" },
     to: { opacity: 1, transform: "translateY(0px) scale(1)" },
@@ -78,15 +72,7 @@ const Menu = () => {
           style={logoSpring}
         />
       </div>
-      <div className="menu-buttons">
-        <Link to={"/recitales"}>
-          <Button variant="primary">Recitales</Button>
-        </Link>
-        <Button variant="primary" onClick={() => setOpen(true)}>
-          Seguinos
-        </Button>
-      </div>
-      <ModalFollow open={open} onClose={() => setOpen(false)} />
+    <MenuButtons />
     </section>
   );
 };

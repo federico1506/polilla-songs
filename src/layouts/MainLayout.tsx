@@ -13,7 +13,7 @@ import Overlay from '../components/Overlay/Overlay';
 import '../styles/App.css'
 
 const MainLayout = () => {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
     const timer = setTimeout(() => {
         setLoading(false);

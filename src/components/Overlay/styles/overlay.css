@@ -39,3 +39,21 @@
       drop-shadow(0 -1px 0 white);
   transform: scale(1.1);
 }
+
+.overlay-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-contact {
+  @media (max-width: 1050px) {
+    display: none;
+  }
+}
+
+.button-menu {
+  @media (min-width: 1051px) {
+    display: none;
+  }
+}
