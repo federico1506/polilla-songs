@@ -1,0 +1,73 @@
+.informacion-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.informacion-texto{
+    text-align: left;
+    margin: 2rem 1rem 2rem 1rem;
+    font-size: 18px;
+}
+
+.informacion-title{
+    text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 4rem;
+}
+
+.informacion-header {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 80%;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+.informacion-header .img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+
+.informacion-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  --fade-height: 38%;
+  height: var(--fade-height);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(24, 24, 36, 0) 0%,
+    rgba(24, 24, 36, 0.8) 50%,
+    rgba(24, 24, 36, 1) 100%
+  );
+  transition: background 0.25s ease;
+}
+
+/* Fade superior */
+.informacion-header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  --fade-height: 48%;
+  height: var(--fade-height);
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(24, 24, 36, 0) 0%,
+    rgba(24, 24, 36, 0.8) 50%,
+    rgba(24, 24, 36, 1) 100%
+  );
+  transition: background 0.25s ease;
+}

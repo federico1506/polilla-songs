@@ -1,3 +1,5 @@
+@import '../../../styles/colors.css';
+
 .btn {
   padding: 12.5px 56px;
   border-radius: 30px;
@@ -19,7 +21,7 @@
     rgba(255, 255, 255, 0.25),
     rgba(255, 255, 255, 0.1)
   );
-  color: white;
+  color: var(--text-primary);
 }
 
 .btn.primary:hover {
@@ -27,16 +29,23 @@
 }
 
 .btn.secondary {
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.4);
+  background-color: var(--accent-color);
+  color: var(--text-primary);
   border: rgba(255, 255, 255, 0.4);
 }
 
 .btn.secondary:hover {
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0.1)
-  );
+  background: var(--accent-color-2);
+  color: white;
+}
+
+.btn.tertiary {
+  background-color: var(--accent-red);
+  color: var(--text-primary);
+  border: rgba(255, 255, 255, 0.4);
+}
+
+.btn.tertiary:hover {
+  background: var(--accent-red);
   color: white;
 }

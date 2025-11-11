@@ -20,7 +20,6 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
-  Typography,
 } from "@mui/material";
 import { FaEnvelope, FaInstagram, FaCalendarAlt, FaBars } from "react-icons/fa";
 import ModalFollow from "../ModalFollow/ModalFollow";
@@ -45,6 +44,7 @@ const Overlay = () => {
         paddingY: 2,
       }}
       role="presentation"
+      className="drawer"
     >
       <div className="overlay-button">
         <Link to="/">

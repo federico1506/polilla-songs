@@ -57,3 +57,31 @@
     display: none;
   }
 }
+
+.drawer {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 24px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.drawer .MuiListItemButton-root:hover {
+  background: rgba(255, 255, 255, 0.1);
+  scale: 1.01;
+}
+
+.drawer .MuiListItemIcon-root {
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+}
+
+.drawer .MuiDivider-root {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.drawer .MuiTypography-root{
+  font-size: 18px;
+  margin-left: 20px;
+}

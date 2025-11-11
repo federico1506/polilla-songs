@@ -5,7 +5,7 @@ import React from "react";
 import "./styles/button.css";
 import { PowerGlitch } from "powerglitch";
 
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "primary" | "secondary" | "tertiary" ;
 
 interface ButtonProps {
   variant?: ButtonVariant;

@@ -1,15 +1,8 @@
 # TODO — Polilla Songs
 
-- [ X ] (P1) Cambiar el cono de arriba del Vite y ponerle el logo de Polilla
-    - Ubicación: header / index
-    - Nota: reemplazar SVG/favicon
+- [ ] Cambiar el estilo del sidebar en version mobile
 
-- [ X ] (P2) Hacer un loading (animación)
-    - Ideas: spinner, skeleton, overlay
-
-- [  ] (P2) Agregarle al background del menu una animacion al background
-
-- [  ] (P2) Hacer responsive el menu
+- [ ] Terminar la sección de recitales
 
 - [ ] (P2) Hacer un masonry con las fotos
     - Opciones: CSS Grid, Masonry lib

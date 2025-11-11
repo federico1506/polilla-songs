@@ -5,6 +5,8 @@
   overflow: hidden;
 }
 
+/* VER PORQUE ACA NO ME DEJA IMPORTAR LAS VARS DE LOS COLORS  */
+
 .container-polilla-img {
   background: linear-gradient(120deg, #6a5af9, #6fc2ff, #b86cff);
   background-size: 300% 300%;
