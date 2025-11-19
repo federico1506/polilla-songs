@@ -1,36 +1,30 @@
-import React from "react";
-import { RECITALES } from "./constants/constants";
+// React
+import React from 'react';
+import { useGlitch } from 'react-powerglitch'
+
+// Styles
 import "./styles/recitales.css";
 
-// Glitch
-import { PowerGlitch } from "powerglitch";
+// Components
 import Button from "../../components/Button/Button";
 
-const Recitales = () => {
-    const glitchRecitalesTitle = {
-    timing: {
-      duration: 4000,
-      easing: "linear",
-    },
-    shake: {
-      amplitudeX: 0.02,
-      amplitudeY: 0.02,
-    },
-    slice: {
-      count: 2,
-      velocity: 10,
-      minHeight: 0.05,
-      maxHeight: 0.05,
-    },
-  };
+// Constants
+import { glitchRecitalesTitle, RECITALES } from "./constants/constants";
 
-    React.useEffect(() => {
-      PowerGlitch.glitch(".recitales-title", glitchRecitalesTitle);
-    }, []);
+const Recitales = () => {
+const glitchTitle = useGlitch({
+  ...glitchRecitalesTitle,
+  playMode: "manual"
+});
+
+React.useEffect(() => {
+  const timer = setInterval(() => glitchTitle.startGlitch(), 3000);
+  return () => clearInterval(timer);
+}, []);
 
   return (
     <section className="recitales-container">
-      <h2 className="recitales-title">Próximos Recitales</h2>
+      <h2 className="recitales-title" ref={glitchTitle.ref}>Próximos Recitales</h2>
       <div className="recitales-list">
         {RECITALES.map((recital) => (
           <div key={recital.id} className="recital-item">

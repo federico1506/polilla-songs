@@ -1,3 +1,5 @@
+export const ENDPOINT_LOCAL = 'http://localhost:5173/'
+
 // URLs de redes sociales de la banda
 export const INSTAGRAM_URL = "https://www.instagram.com/polillabandabahiense/"
 export const SPOTIFY_URL = "https://open.spotify.com/artist/1gkYV7pYJ3p6Y2bQ1F6b0D"

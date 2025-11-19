@@ -12,7 +12,8 @@
 
 .informacion-title{
     text-align: center;
-    font-size: 36px;
+    font-size: 4rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 4rem;
