@@ -1,0 +1,41 @@
+@import '../../../../src/styles/colors.css';
+
+.fotos-container{
+    padding: 3rem 1.5rem 1rem 1.5rem;
+    width: 100%;
+}
+
+.fotos-titles-container{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--text-primary);
+}
+
+.fotos-title{
+  margin-top: 2rem;
+  font-size: 3.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+    @media (max-width: 932px) {
+     font-size: 2rem;
+     text-align: center;
+  }
+}
+
+.fotos-subtitle {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+      @media (max-width: 932px) {
+     font-size: 1rem;
+     text-align: center;
+  }
+}
+
+.fotos-subtitle span{
+    color: var(--accent-color);
+}
