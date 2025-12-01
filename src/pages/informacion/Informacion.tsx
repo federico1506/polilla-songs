@@ -1,5 +1,3 @@
-import React from 'react'
-
 import info_imagen from '../../assets/INFO2_IMAGEN.jpg'
 import "./styles/informacion.css";
 
