@@ -43,24 +43,6 @@ const Informacion = () => {
               que avanza hacia lo que la inspira, navegando un futuro musical
               que sigue en movimiento.
             </p>
-
-            <p className="informacion-texto">
-              La música es el puente, pero lo verdaderamente importante es lo
-              que pasa alrededor: la energía compartida, el caos lindo, la vibra
-              polillera. A lo largo del tiempo hubo cambios, idas y vueltas,
-              nuevas etapas y nuevas caras, pero algo nunca se movió: la esencia
-              de Polilla. Hoy la banda está formada por Rodrigo Benedicti en la
-              voz, Bruno Aguayo en la batería, Federico Pereyra en el piano,
-              Baltazar Gómez y Marcio Madsen en guitarra, y Juan Pablo Garraza
-              en el bajo.
-            </p>
-            <p className="informacion-texto">
-              Nuestro sonido mezcla el groove del funk con guiños de nu metal y
-              toda la influencia del entorno musical que nos rodea. Polilla
-              busca dejar su marca siguiendo la luz, como una polilla curiosa
-              que avanza hacia lo que la inspira, navegando un futuro musical
-              que sigue en movimiento.
-            </p>
           </div>
 
           <div className="informacion-imagen">
