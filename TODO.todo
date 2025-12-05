@@ -1,17 +1,5 @@
 # TODO — Polilla Songs
-
-- [ ] Cambiar el estilo del sidebar en version mobile
-
-- [ ] Terminar la sección de recitales
-
-- [ ] (P2) Hacer un masonry con las fotos
-    - Opciones: CSS Grid, Masonry lib
-
-- [ ] (P3) Ordenar la parte de los integrantes de la banda
-    - Revisar orden, roles y estilos
-
-- [ ] (P3) Agregar un about
-    - Contenido: descripción breve, contacto
-
 - [ ] (P2) Agregar suavizado con alguna librería (motion / spring)
     - Opciones: Framer Motion, react-spring, Motion One
+
+- [ ] On Navigate tiene que haber un window scroll a la pos 0,0
