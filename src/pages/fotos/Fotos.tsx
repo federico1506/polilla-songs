@@ -25,9 +25,8 @@ const AnimatedImage: React.FC<{ src: string; onClick: () => void }> = ({
   onClick,
 }) => {
   const [hovered, setHovered] = React.useState(false);
-
   const appear = useSpring({
-    from: { opacity: 0, transform: "translateY(20px)" },
+    from: { opacity: 0, transform: "translateY(100px)" },
     to: { opacity: 1, transform: "translateY(0px)" },
     config: { tension: 120, friction: 18 },
   });
@@ -61,6 +60,12 @@ const AnimatedImage: React.FC<{ src: string; onClick: () => void }> = ({
 };
 
 const Fotos: React.FC = () => {
+  const fadeBlur = useSpring({
+    from: { opacity: 0, filter: "blur(10px)" },
+    to: { opacity: 1, filter: "blur(0px)" },
+    config: { tension: 100, friction: 20 },
+  });
+
   const [open, setOpen] = React.useState(false);
   const [selectedImg, setSelectedImg] = React.useState<string | null>(null);
 
@@ -71,9 +76,9 @@ const Fotos: React.FC = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="fotos-container">
+    <animated.div style={fadeBlur} className="fotos-container">
       <div className="fotos-titles-container">
-        <h1 className="fotos-title">POLILLA OFFICIAL</h1>
+        <h1 className="fotos-title">Memorias del Escenario</h1>
         <h3 className="fotos-subtitle">
           Recitales, momentos <span>especiales</span>
         </h3>
@@ -110,7 +115,7 @@ const Fotos: React.FC = () => {
           )}
         </Box>
       </Modal>
-    </div>
+    </animated.div>
   );
 };
 

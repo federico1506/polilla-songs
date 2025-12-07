@@ -1,7 +1,3 @@
-// React
-import React from 'react';
-import { useGlitch } from 'react-powerglitch'
-
 // Styles
 import "./styles/recitales.css";
 
@@ -9,22 +5,20 @@ import "./styles/recitales.css";
 import Button from "../../components/Button/Button";
 
 // Constants
-import { glitchRecitalesTitle, RECITALES } from "./constants/constants";
+import { RECITALES } from "./constants/constants";
+
+// Spring
+import { animated, useSpring } from "@react-spring/web";
 
 const Recitales = () => {
-const glitchTitle = useGlitch({
-  ...glitchRecitalesTitle,
-  playMode: "manual"
-});
-
-React.useEffect(() => {
-  const timer = setInterval(() => glitchTitle.startGlitch(), 3000);
-  return () => clearInterval(timer);
-}, []);
-
+  const fadeBlur = useSpring({
+    from: { opacity: 0, filter: "blur(10px)" },
+    to: { opacity: 1, filter: "blur(0px)" },
+    config: { tension: 100, friction: 20 },
+  });
   return (
-    <section className="recitales-container">
-      <h2 className="recitales-title" ref={glitchTitle.ref}>Próximos Recitales</h2>
+    <animated.div style={fadeBlur} className="recitales-container">
+      <h2 className="recitales-title">Próximos Recitales</h2>
       <div className="recitales-list">
         {RECITALES.map((recital) => (
           <div key={recital.id} className="recital-item">
@@ -46,18 +40,18 @@ React.useEffect(() => {
                 <p className="recital-descripcion">{recital.descripcion}</p>
               )}
             </div>
-              {
-                recital.tickets_button && (
-                  <div>
-                      <Button variant="secondary" className="recital-tickets">Tickets</Button>
-                  </div>
-                )
-              }
+            {recital.tickets_button && (
+              <div>
+                <Button variant="secondary" className="recital-tickets">
+                  Tickets
+                </Button>
+              </div>
+            )}
           </div>
         ))}
       </div>
-    </section>
+    </animated.div>
   );
-}
+};
 
 export default Recitales

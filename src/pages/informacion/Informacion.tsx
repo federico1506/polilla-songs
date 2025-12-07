@@ -1,10 +1,23 @@
+// React Spring
+import { useSpring, animated } from "@react-spring/web";
+
+// Images
 import info_imagen from "../../assets/INSTRUMENTS.jpg";
 import grupo_imagen from "../../assets/BAND2.png";
+
+// Styles
 import "./styles/informacion.css";
 
 const Informacion = () => {
+
+const fadeBlur = useSpring({
+  from: { opacity: 0, filter: "blur(10px)" },
+  to: { opacity: 1, filter: "blur(0px)" },
+  config: { tension: 100, friction: 20 }
+});
+
   return (
-    <div className="informacion-container">
+    <animated.div style={fadeBlur} className="informacion-container">
       <div className="informacion-header">
         <div className="informacion-title">Polilla</div>
         <div className="informacion-subtitle">Bahia Blanca</div>
@@ -18,8 +31,10 @@ const Informacion = () => {
           }}
         ></div>
       </div>
+
       <div className="informacion-about-container">
         <div className="informacion-subtitle2">Sobre nosotros</div>
+
         <div className="informacion-about-container2">
           <div className="informacion-info">
             <p className="informacion-texto">
@@ -33,6 +48,7 @@ const Informacion = () => {
               nuevas etapas y nuevas caras, pero algo nunca se movió: la esencia
               de Polilla.
             </p>
+
             <p className="informacion-texto">
               Hoy la banda está formada por Rodrigo Benedicti en la voz, Bruno
               Aguayo en la batería, Federico Pereyra en el piano, Baltazar Gómez
@@ -54,7 +70,7 @@ const Informacion = () => {
           </div>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 

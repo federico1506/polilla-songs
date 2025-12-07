@@ -7,6 +7,7 @@ export interface Recital {
   link_pago: string;
   imagen?: string;
   tickets_button?: boolean;
+  surprise?: boolean;
 }
 
 export const RECITALES: Recital[] = [
@@ -18,7 +19,7 @@ export const RECITALES: Recital[] = [
     descripcion: "Los temas de siempre y sorpresitas.",
     link_pago: "https://mpago.la/24hVMrk",
     imagen: "/images/recital1.jpg",
-    tickets_button: true,
+    tickets_button: false,
   },
   {
     id: 2,
@@ -28,7 +29,7 @@ export const RECITALES: Recital[] = [
     descripcion: "POLILLA y MARGINADOS. 3 bandas para llenarte de riffs.",
     link_pago: "https://mpago.la/24hVMrk",
     imagen: "/images/recital2.jpg",
-    tickets_button: true,
+    tickets_button: false,
   },
   {
     id: 3,
@@ -40,20 +41,3 @@ export const RECITALES: Recital[] = [
     imagen: "/images/recital3.jpg",
   },
 ];
-
-export const glitchRecitalesTitle = {
-  timing: {
-    duration: 4000,
-    easing: "linear",
-  },
-  shake: {
-    amplitudeX: 0.02,
-    amplitudeY: 0.02,
-  },
-  slice: {
-    count: 2,
-    velocity: 10,
-    minHeight: 0.05,
-    maxHeight: 0.05,
-  },
-};

@@ -1,5 +1,14 @@
+"use client";
+
+// React
+import React from "react";
+
+// Lenis Smooth Scrolling
+import { lenis } from "./types/lenis";
+
 // Routing
 import { Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 // Pages
 import Menu from "./pages/menu/Menu";
@@ -12,16 +21,30 @@ import Recitales from "./pages/recitales/Recitales";
 import MainLayout from "./layouts/MainLayout";
 
 function App() {
+
+  // Lenis Smooth Scrolling
+  React.useEffect(() => {
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Menu />} />
-        <Route path="/canciones" element={<Canciones />} />
-        <Route path="/fotos" element={<Fotos />} />
-        <Route path="/informacion" element={<Informacion />} />
-        <Route path="/recitales" element={<Recitales />} />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Menu />} />
+          <Route path="/canciones" element={<Canciones />} />
+          <Route path="/fotos" element={<Fotos />} />
+          <Route path="/informacion" element={<Informacion />} />
+          <Route path="/recitales" element={<Recitales />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

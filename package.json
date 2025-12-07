@@ -18,6 +18,7 @@
     "@mui/lab": "^7.0.1-beta.19",
     "@mui/material": "^7.3.5",
     "@react-spring/web": "^10.0.3",
+    "@studio-freight/lenis": "^1.0.42",
     "leva": "^0.10.1",
     "lucide-react": "^0.552.0",
     "powerglitch": "^2.5.0",
