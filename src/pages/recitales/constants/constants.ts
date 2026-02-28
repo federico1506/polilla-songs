@@ -19,7 +19,7 @@ export const RECITALES: Recital[] = [
     descripcion: "Los temas de siempre y sorpresitas.",
     link_pago: "https://mpago.la/24hVMrk",
     imagen: "/images/recital1.jpg",
-    tickets_button: false,
+    tickets_button: true,
   },
   {
     id: 2,

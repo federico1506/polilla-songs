@@ -19,6 +19,6 @@ export const sectionWords = [
 ];
 
 // Constantes para el formulario de contacto
-export const mailRecipient = "polillaoficial@gmail.com";
-export const mailSubject = "Contacto - Polilla Banda Bahiense Sitio Web";
+export const mailRecipient = "polillaofficial@gmail.com";
+export const mailSubject = "Contacto - Polilla Sitio Web";
 export const mensajeDefault = "Hola. Quisiera ponerme en contacto con ustedes para...";

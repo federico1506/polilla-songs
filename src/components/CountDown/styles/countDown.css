@@ -1,0 +1,173 @@
+@import '../../../styles/colors.css';
+
+/* ── Contenedor principal ── */
+.cd-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+/* ── Título ── */
+.cd-title {
+  text-align: center;
+  font-size: clamp(3rem, 8vw, 6rem);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: floatDown 3.5s ease-in-out infinite;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@keyframes floatDown {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 4px; }
+}
+
+/* ── Subtítulo ── */
+.cd-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* ── Subtítulo con la fecha ── */
+.cd-subtitle-date {
+  color: var(--accent-color);
+  font-size: clamp(0.65rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 8px;
+}
+
+/* ── Grid de bloques ── */
+.cd-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 50%;
+  gap: clamp(0.6rem, 1vw, 0rem);
+}
+
+
+/* ── Cada bloque (caja + etiqueta) ── */
+.cd-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 0 1 auto;
+}
+
+/* ── Chip ── */
+.cd-chip {
+  border: 2px solid var(--accent-color);
+  background: transparent;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  padding: 0.25rem 0.5rem;
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-weight: 600;
+  position: absolute;
+  letter-spacing: 1.5px;
+  top: 1rem;
+  left: 1rem;
+  text-transform: uppercase;
+}
+
+/* ── Caja del número ── */
+.cd-digit-box {
+  width: clamp(80px, 18vw, 150px);
+  height: clamp(90px, 20vw, 170px);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.cd-digit-box:hover {
+  border-color: var(--accent-color);
+  cursor: pointer;
+}
+
+/* Línea divisoria central estilo flip-clock */
+.cd-digit-box::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Dígito animado ── */
+.cd-digit {
+  font-size: clamp(2.5rem, 9vw, 6rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  display: block;
+}
+
+/* ── Etiqueta debajo ── */
+.cd-label {
+  color: var(--accent-color);
+  font-size: clamp(0.65rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ── Separador ":" ── */
+.cd-sep {
+  color: var(--text-muted);
+  font-size: clamp(2rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  align-self: flex-start;
+  padding-top: clamp(18px, 4vw, 38px);
+}
+
+/* ── Mensaje de finalizado ── */
+.cd-finished {
+  color: var(--accent-color);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.04); }
+}
+
+/* ── Responsive pequeño ── */
+@media (max-width: 400px) {
+  .cd-sep {
+    display: none;
+  }
+  .cd-grid {
+    gap: 0.75rem;
+  }
+}
