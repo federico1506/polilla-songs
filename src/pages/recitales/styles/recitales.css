@@ -11,6 +11,55 @@
     drop-shadow(0 4px 10px rgba(0, 0, 0, 1));
 }
 
+.recitales-info {
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.recitales-accordion {
+  background-color: var(--bg-secondary) !important;
+  border-radius: var(--border-radius) !important;
+  margin: 1rem auto;
+}
+
+.recitales-expand-icon {
+  color: var(--text-primary);
+}
+
+.recitales-info-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.recitales-info-text {
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.recital-info-button {
+  color: var(--accent-color-2) !important;
+  border: 2px solid var(--accent-color-2) !important;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.recital-info-button:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
 .recitales-title {
   margin-top: 2rem;
   font-size: 3.5rem;
@@ -28,6 +77,18 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.recitales-instagram-link {
+  color: var(--accent-color-2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.recitales-instagram-link:hover {
+  opacity: 0.7;
+  scale: 1.05;
 }
 
 .recital-item {
@@ -88,11 +149,33 @@
   line-height: 1.4;
 }
 
+.recital-precios {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.recital-precio {
+  margin: 0;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.recital-precio-label {
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.recital-precio-valor {
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
 .recital-tickets{
   text-transform: uppercase;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .recital-item {
     padding: 1.25rem;

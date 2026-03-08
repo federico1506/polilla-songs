@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from "react";
 // Spring
 import { animated, useSpring } from "@react-spring/web";
-import { allSongs, type Song } from '../../data/songs'
-import './styles/canciones.css'
-import { sectionWords } from '../../constants/constants'
-import polillaLogo from '../../assets/PNG POLILLA - LOGO 01.png'
+import { allSongs, type Song } from "../../data/songs";
+import "./styles/canciones.css";
+import { sectionWords } from "../../constants/constants";
+import polillaLogo from "../../assets/PNG POLILLA - LOGO 01.png";
+
+
+// Utils
+import { lenis } from "../../types/lenis";
 
 const Canciones = () => {
- const [selectedSong, setSelectedSong] = useState<Song | null>(null);
+  const [selectedSong, setSelectedSong] = useState<Song | null>(null);
   const fadeBlur = useSpring({
     from: { opacity: 0, filter: "blur(10px)" },
     to: { opacity: 1, filter: "blur(0px)" },
@@ -15,10 +19,12 @@ const Canciones = () => {
   });
 
   const openSongModal = (song: Song) => {
+    lenis.stop();
     setSelectedSong(song);
   };
 
   const closeSongModal = () => {
+    lenis.start();
     setSelectedSong(null);
   };
 
@@ -36,7 +42,7 @@ const Canciones = () => {
           upperLine === word ||
           (/^([A-ZÁÉÍÓÚÜÑ]+) [0-9]+$/.test(upperLine) &&
             upperLine.startsWith(word + " ")) ||
-          upperLine === word + " FINAL"
+          upperLine === word + " FINAL",
       );
       return (
         <div
@@ -49,55 +55,63 @@ const Canciones = () => {
     });
   };
 
+  useEffect(() => {
+    document.body.classList.toggle("modal-open", !!selectedSong);
+  }, [selectedSong]);
+
   return (
-        <div >
-          <animated.div style={fadeBlur} className="songs-section">
-            <div className="container">
-              <div className="canciones-container-title">
-              <h2 className="canciones-title">Canciones</h2>
-                <img  src={polillaLogo} alt="Polilla" className="canciones-image-polilla" />
-              </div>
-              <div className="songs-grid">
-                {allSongs.map((song, index) => (
-                  <div
-                    key={song.title}
-                    className="song-card"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                    onClick={() => openSongModal(song)}
-                  >
-                    <h3 className="song-title">{song.title}</h3>
-                    <div className="song-preview">
-                      {getSongPreview(song.lyrics)}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </animated.div>
-
-          {selectedSong && (
-            <div className="modal-overlay" onClick={closeSongModal}>
+    <div>
+      <animated.div style={fadeBlur} className="songs-section">
+        <div className="container">
+          <div className="canciones-container-title">
+            <h2 className="canciones-title">Canciones</h2>
+            <img
+              src={polillaLogo}
+              alt="Polilla"
+              className="canciones-image-polilla"
+            />
+          </div>
+          <div className="songs-grid">
+            {allSongs.map((song, index) => (
               <div
-                className="modal-content"
-                onClick={(e) => e.stopPropagation()}
-                   onWheel={(e) => e.stopPropagation()}
+                key={song.title}
+                className="song-card"
+                style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => openSongModal(song)}
               >
-                <div className="modal-header">
-                  <h3 className="modal-title-canciones">{selectedSong.title}</h3>
-                  <button className="close-button" onClick={closeSongModal}>
-                    ×
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <div className="lyrics-content">
-                    {formatLyrics(selectedSong.lyrics)}
-                  </div>
+                <h3 className="song-title">{song.title}</h3>
+                <div className="song-preview">
+                  {getSongPreview(song.lyrics)}
                 </div>
               </div>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
-  );
-}
+      </animated.div>
 
-export default Canciones
+      {selectedSong && (
+        <div className="modal-overlay" onClick={closeSongModal}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
+          >
+            <div className="modal-header">
+              <h3 className="modal-title-canciones">{selectedSong.title}</h3>
+              <button className="close-button" onClick={closeSongModal}>
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              <div className="lyrics-content">
+                {formatLyrics(selectedSong.lyrics)}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Canciones;

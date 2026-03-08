@@ -1,4 +1,5 @@
 export const ENDPOINT_LOCAL = 'http://localhost:5173/'
+export const ALIAS_MERCADO_PAGO = 'polillabanda.mp'
 
 // URLs de redes sociales de la banda
 export const INSTAGRAM_URL = "https://www.instagram.com/polillaofficial/";

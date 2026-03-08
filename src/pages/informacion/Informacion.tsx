@@ -2,8 +2,8 @@
 import { useSpring, animated } from "@react-spring/web";
 
 // Images
-import info_imagen from "../../assets/INSTRUMENTS.jpg";
-import grupo_imagen from "../../assets/BAND2.png";
+import info_imagen from "../../assets/INSTRUMENTS.webp";
+import grupo_imagen from "../../assets/fotos/foto7.webp";
 
 // Styles
 import "./styles/informacion.css";
@@ -51,8 +51,7 @@ const fadeBlur = useSpring({
 
             <p className="informacion-texto">
               Hoy la banda está formada por Rodrigo Benedicti en la voz, Bruno
-              Aguayo en la batería, Federico Pereyra en el piano, Baltazar Gómez
-              y Marcio Madsen en guitarra, y Juan Pablo Garraza en el bajo.
+              Aguayo en la batería, Federico Pereyra en el piano, Marcio Madsen en guitarra, y Juan Pablo Garraza en el bajo.
               Nuestro sonido mezcla el groove del funk con guiños de nu metal y
               toda la influencia del entorno musical que nos rodea. Polilla
               busca dejar su marca siguiendo la luz, como una polilla curiosa

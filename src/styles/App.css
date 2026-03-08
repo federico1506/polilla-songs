@@ -18,6 +18,12 @@ body {
   min-height: 100vh;
 }
 
+html.modal-open,
+body.modal-open {
+  overflow: hidden;
+  height: 100%;
+}
+
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
   width: 8px;

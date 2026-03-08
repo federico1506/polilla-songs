@@ -1,11 +1,17 @@
-// ImageModal.tsx — layout mobile-first
-
+// React
 import React from "react";
-import { Modal, Box, IconButton } from "@mui/material";
 import { useSpring, animated } from "@react-spring/web";
+
+// Components
+import { Modal, Box, IconButton } from "@mui/material";
+
+// Icons
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
+
+// Utils
+import { lenis } from "../../../types/lenis";
 
 interface ImageModalProps {
   images: string[];
@@ -56,27 +62,29 @@ const ImageModal: React.FC<ImageModalProps> = ({
     onNavigate(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1);
   };
 
-  React.useEffect(() => {
-    if (!isOpen) return;
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [isOpen, selectedIndex]);
+React.useEffect(() => {
+  if (!isOpen) return;
+
+  lenis.stop();
+
+  const handleKey = (e: KeyboardEvent) => {
+    if (e.key === "ArrowLeft") handlePrev();
+    if (e.key === "ArrowRight") handleNext();
+    if (e.key === "Escape") onClose();
+  };
+
+  window.addEventListener("keydown", handleKey);
+
+  return () => {
+    window.removeEventListener("keydown", handleKey);
+    lenis.start();
+  };
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [isOpen, lenis]);
 
   React.useEffect(() => {
-  if (isOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-  return () => {
-    document.body.style.overflow = "";
-  };
-}, [isOpen]);
+    document.body.classList.toggle("modal-open", !!isOpen);
+  }, [isOpen]);
 
   return (
     <Modal open={isOpen} onClose={onClose} >

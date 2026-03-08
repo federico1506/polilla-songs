@@ -4,6 +4,8 @@ export interface Recital {
   lugar: string;
   direccion: string;
   descripcion?: string;
+  precio_anticipada?: string;
+  precio_puerta?: string;
   link_pago: string;
   imagen?: string;
   tickets_button?: boolean;
@@ -17,6 +19,8 @@ export const RECITALES: Recital[] = [
     lugar: "Casa Marx",
     direccion: "Berutti 902 ",
     descripcion: "El renacer de una polilla",
+    precio_anticipada: "$5000",
+    precio_puerta: "$7000",
     link_pago: "https://www.mercadopago.com.ar/money-out/transfer/dashboard#from=home_desktop&oc.component=hs_banking",
     imagen: "/images/recital-prueba.jpg",
     tickets_button: true,
