@@ -3,9 +3,7 @@ import type { Song } from './te-encontrare';
 export const polilla: Song = {
   title: "Polilla",
   lyrics: [
-    "Nanana",
-    "",
-    "Estrofa 1",
+    "Estrofa",
     "Nadie falta para unirse a este tantra",
     "Si una luz en la vereda alarga mis mantras",
     "Con la tempestad y los pies descalzos, me alcanza",

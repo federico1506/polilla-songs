@@ -84,7 +84,7 @@ export default function CountDown({
             setClickCount(0);
         }, 1500);
 
-        if (newCount >= 5) {
+        if (newCount >= 3) {
             setOpenEasterEgg(true);
             setOpenRick(true);
             setClickCount(0);

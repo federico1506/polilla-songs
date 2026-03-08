@@ -1,16 +1,19 @@
+// React
 import React from "react";
+
+// Icons
 import { FaInstagram, FaSpotify, FaTiktok, FaYoutube } from "react-icons/fa";
-import {
-  INSTAGRAM_URL,
-  SPOTIFY_URL,
-  TIKTOK_URL,
-  YOUTUBE_URL,
-} from "../../constants/constants";
+
+// Utils
+import { INSTAGRAM_URL, TIKTOK_URL } from "../../constants/constants";
+
+// Styles
 import "./styles/modalfollow.css";
 
 // Routing
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import { Tooltip } from "@mui/material";
 
 interface ModalFollowProps {
   open: boolean;
@@ -29,45 +32,39 @@ const ModalFollow: React.FC<ModalFollowProps> = ({ open, onClose }) => {
         </p>
 
         <div className="modal-icons">
-          <Link
-            to={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon instagram"
-            title="Instagram"
-          >
-            <FaInstagram />
-          </Link>
-          <Link
-            to={SPOTIFY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon spotify"
-            title="Próximamente"
-          >
-            <FaSpotify />
-          </Link>
-          <Link
-            to={TIKTOK_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon tiktok"
-            title="TikTok"
-          >
-            <FaTiktok />
-          </Link>
-          <Link
-            to={YOUTUBE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon youtube"
-            title="Próximamente"
-          >
-            <FaYoutube />
-          </Link>
+          <Tooltip title="Instagram" placement="top">
+            <Link
+              to={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon instagram"
+            >
+              <FaInstagram />
+            </Link>
+          </Tooltip>
+          <Tooltip title="TikTok" placement="top">
+            <Link
+              to={TIKTOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon tiktok"
+            >
+              <FaTiktok />
+            </Link>
+          </Tooltip>
+          <Tooltip title="Próximamente" placement="top">
+            <div className="icon youtube disabled">
+              <FaYoutube />
+            </div>
+          </Tooltip>
+          <Tooltip title="Próximamente" placement="top">
+            <div className="icon spotify disabled">
+              <FaSpotify />
+            </div>
+          </Tooltip>
         </div>
 
-        <Button onClick={onClose} variant= 'primary' className="modal-close">
+        <Button onClick={onClose} variant="primary" className="modal-close">
           Cerrar
         </Button>
       </div>

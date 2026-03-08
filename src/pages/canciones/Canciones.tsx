@@ -1,13 +1,18 @@
 import { useState } from 'react'
+// Spring
+import { animated, useSpring } from "@react-spring/web";
 import { allSongs, type Song } from '../../data/songs'
-import logoPolilla from '../../assets/PNG POLILLA - LOGO 01.png'
-import '../../styles/App.css'
 import './styles/canciones.css'
 import { sectionWords } from '../../constants/constants'
-
+import polillaLogo from '../../assets/PNG POLILLA - LOGO 01.png'
 
 const Canciones = () => {
  const [selectedSong, setSelectedSong] = useState<Song | null>(null);
+  const fadeBlur = useSpring({
+    from: { opacity: 0, filter: "blur(10px)" },
+    to: { opacity: 1, filter: "blur(0px)" },
+    config: { tension: 100, friction: 20 },
+  });
 
   const openSongModal = (song: Song) => {
     setSelectedSong(song);
@@ -19,7 +24,7 @@ const Canciones = () => {
 
   const getSongPreview = (lyrics: string[]) => {
     const firstLines = lyrics.slice(0, 6).filter((line) => line.trim() !== "");
-    return firstLines.join("\n");
+    return formatLyrics(firstLines);
   };
 
   const formatLyrics = (lyrics: string[]) => {
@@ -44,35 +49,22 @@ const Canciones = () => {
     });
   };
 
-
-
   return (
-        <div className="App">
-          <section className="songs-section">
+        <div >
+          <animated.div style={fadeBlur} className="songs-section">
             <div className="container">
-              <h2 className="section-title">Canciones</h2>
+              <div className="canciones-container-title">
+              <h2 className="canciones-title">Canciones</h2>
+                <img  src={polillaLogo} alt="Polilla" className="canciones-image-polilla" />
+              </div>
               <div className="songs-grid">
                 {allSongs.map((song, index) => (
                   <div
                     key={song.title}
-                    className="song-card hover-glow fade-in-up"
+                    className="song-card"
                     style={{ animationDelay: `${index * 0.1}s` }}
                     onClick={() => openSongModal(song)}
                   >
-                    <img
-                      src={logoPolilla}
-                      alt="Logo Polilla"
-                      className="song-card-logo"
-                      style={{
-                        width: "38px",
-                        height: "38px",
-                        position: "absolute",
-                        top: "18px",
-                        right: "18px",
-                        opacity: 0.7,
-                        pointerEvents: "none",
-                      }}
-                    />
                     <h3 className="song-title">{song.title}</h3>
                     <div className="song-preview">
                       {getSongPreview(song.lyrics)}
@@ -81,17 +73,17 @@ const Canciones = () => {
                 ))}
               </div>
             </div>
-          </section>
+          </animated.div>
 
-          {/* Modal de Letra */}
           {selectedSong && (
             <div className="modal-overlay" onClick={closeSongModal}>
               <div
                 className="modal-content"
                 onClick={(e) => e.stopPropagation()}
+                   onWheel={(e) => e.stopPropagation()}
               >
                 <div className="modal-header">
-                  <h3 className="modal-title">{selectedSong.title}</h3>
+                  <h3 className="modal-title-canciones">{selectedSong.title}</h3>
                   <button className="close-button" onClick={closeSongModal}>
                     ×
                   </button>

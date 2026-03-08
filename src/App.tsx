@@ -24,7 +24,7 @@ import MainLayout from "./layouts/MainLayout";
 // Countdown
 import CountDown from "./components/CountDown/CountDown";
 
-const TARGET_DATE = new Date("2026-03-09T18:00:00");
+const TARGET_DATE = new Date("2026-03-07T13:00:00");
 
 const isExpired = () => TARGET_DATE.getTime() <= Date.now();
 

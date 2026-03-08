@@ -16,6 +16,13 @@ const Recitales = () => {
     to: { opacity: 1, filter: "blur(0px)" },
     config: { tension: 100, friction: 20 },
   });
+
+  const copyAndOpen = (link: string) => {
+    navigator.clipboard
+      .writeText("polillabanda.mp")
+      .catch((err) => console.error("no se pudo copiar", err));
+    window.open(link, "_blank");
+  };
   return (
     <animated.div style={fadeBlur} className="recitales-container">
       <h2 className="recitales-title">Próximos Recitales</h2>
@@ -42,7 +49,7 @@ const Recitales = () => {
             </div>
             {recital.tickets_button && (
               <div>
-                <Button variant="secondary" className="recital-tickets">
+                <Button variant="secondary" className="recital-tickets" onClick={() => copyAndOpen(recital.link_pago)}>
                   Tickets
                 </Button>
               </div>

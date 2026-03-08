@@ -1,14 +1,17 @@
+'use client'
+
 // React
-import React from "react"
 import { useSpring, animated } from "@react-spring/web"
+
+// Components
+import MenuButtons from "../../components/MenuButtons/MenuButtons"
 
 // Imagen
 import nombrePolilla from "../../assets/PNG POLILLA 01.png"
 import logoPolilla from "../../assets/PNG POLILLA - LOGO 01.png"
 
-// Glitch
-import { PowerGlitch } from "powerglitch";
-import MenuButtons from "../../components/MenuButtons/MenuButtons"
+// Wave
+import Wave from "react-wavify";
 
 const Menu = () => {
   const logoSpring = useSpring({
@@ -18,53 +21,28 @@ const Menu = () => {
     delay: 320,
   });
 
-  const glitchLogoPolilla = {
-    timing: {
-      duration: 4000,
-      easing: "linear",
-    },
-    shake: {
-      amplitudeX: 0.05,
-      amplitudeY: 0.05,
-    },
-    slice: {
-      count: 2,
-      velocity: 10,
-      minHeight: 0.05,
-      maxHeight: 0.05,
-    },
-  };
-  const glitchNombrePolilla = {
-    timing: {
-      duration: 4000,
-      easing: "linear",
-    },
-    shake: {
-      amplitudeX: 0.008,
-      amplitudeY: 0.008,
-    },
-    slice: {
-      count: 2,
-      velocity: 10,
-      minHeight: 0.05,
-      maxHeight: 0.05,
-    },
-  };
-
-  React.useEffect(() => {
-    PowerGlitch.glitch(".logo-polilla-img", glitchLogoPolilla);
-    PowerGlitch.glitch(".nombre-polilla-img", glitchNombrePolilla);
-  }, []);
-
   return (
     <section className="menu">
-      <div className="container-polilla-img ">
+      <Wave
+        fill="#ffffff10"
+        paused={false}
+        options={{
+          height: 20,
+          amplitude: 60,
+          speed: 0.15,
+          points: 4,
+        }}
+        className="menu-wave"
+      />
+
+      <div className="container-polilla-img">
         <animated.img
           src={logoPolilla}
           alt="Polilla Banda Bahiense"
           className="logo-polilla-img"
           style={logoSpring}
         />
+
         <animated.img
           src={nombrePolilla}
           alt="Polilla Banda Bahiense"
@@ -72,9 +50,11 @@ const Menu = () => {
           style={logoSpring}
         />
       </div>
-    <MenuButtons />
+
+      <MenuButtons />
+
     </section>
   );
 };
 
-export default Menu
+export default Menu;

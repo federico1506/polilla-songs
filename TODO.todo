@@ -1,5 +1,2 @@
 # TODO — Polilla Songs
-- [ ] (P2) Agregar suavizado con alguna librería (motion / spring)
-    - Opciones: Framer Motion, react-spring, Motion One
-
-- [ ] On Navigate tiene que haber un window scroll a la pos 0,0
+- [ ]

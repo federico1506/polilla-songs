@@ -2,8 +2,8 @@ import type { Song } from './te-encontrare';
 
 export const nexo: Song = {
   title: "Nexo",
-  lyrics: [
-    "Estrofa 1",
+ lyrics: [
+    "Estrofa",
     "Este dolor en el nexo núcleo nuclear",
     "Que deja rastro en el cuerpo y lo emocional",
     "Me arrebata toda fuerza para alimentar",
@@ -15,7 +15,7 @@ export const nexo: Song = {
     "A aquel oximoron de esa moral deforme",
     "Acorde a todo lo que tu boca esconde",
     "",
-    "PRE-Estribillo",
+    "Pre-Estribillo",
     "Si esta noche se hace eterna por la espera",
     "Por la espera",
     "Y mi expresión se congela por la espera",
@@ -26,12 +26,13 @@ export const nexo: Song = {
     "En el centro",
     "Uno muere",
     "Desde adentro",
+    "",
     "El viento ruge",
     "En el centro",
     "Uno muere",
     "Uno muere y desde adentro suena",
     "",
-    "Estrofa 2",
+    "Estrofa",
     "Este dolor en el nexo núcleo nuclear",
     "Que dibujó mis alas de la libertad",
     "Me levanta un día más para improvisar",
@@ -42,7 +43,7 @@ export const nexo: Song = {
     "Ya no quiero compartir el aire que respiro con el puto tiradero",
     "Junto al pozo petrolero que envenena el río entero",
     "",
-    "PRE-Estribillo 2",
+    "Pre-Estribillo",
     "Si esta noche se hace eterna por la espera",
     "Por la espera",
     "Si este tono suena y suena pero no contesta",
@@ -53,22 +54,10 @@ export const nexo: Song = {
     "En el centro",
     "Uno muere",
     "Desde adentro",
-    "El viento ruge",
-    "En el centro",
-    "Uno muere",
-    "Uno muere y desde adentro suena",
     "",
     "El viento ruge",
     "En el centro",
     "Uno muere",
-    "Desde adentro",
-    "El viento ruge",
-    "En el centro",
-    "Uno muere",
-    "Uno muere y desde adentro suena",
-    "",
-    "Modula",
-    "",
     "Uno muere y desde adentro suena"
   ]
-}; 
+};

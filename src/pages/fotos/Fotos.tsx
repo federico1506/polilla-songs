@@ -3,53 +3,55 @@ import React from "react";
 
 // Components
 import Masonry from "@mui/lab/Masonry";
-import { Modal, Box } from "@mui/material";
+import ImageModal from "./components/ImageModal";
 
 // Spring
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, animated, useTrail } from "@react-spring/web";
 
 // Styles
 import "./styles/fotos.css";
 
 const images = [
-  "https://dummyimage.com/400x600/aaa/fff",
-  "https://dummyimage.com/300x300/bbb/fff",
-  "https://dummyimage.com/500x400/ccc/fff",
-  "https://dummyimage.com/350x500/999/fff",
-  "https://dummyimage.com/450x350/666/fff",
-  "https://dummyimage.com/600x450/444/fff",
+  new URL("../../assets/fotos/foto1.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto2.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto3.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto4.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto5.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto6.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto7.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto8.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto9.webp", import.meta.url).href,
 ];
 
-const AnimatedImage: React.FC<{ src: string; onClick: () => void }> = ({
-  src,
-  onClick,
-}) => {
+const AnimatedImage: React.FC<{
+  src: string;
+  style: object;
+  onClick: () => void;
+}> = ({ src, style, onClick }) => {
   const [hovered, setHovered] = React.useState(false);
-  const appear = useSpring({
-    from: { opacity: 0, transform: "translateY(100px)" },
-    to: { opacity: 1, transform: "translateY(0px)" },
-    config: { tension: 120, friction: 18 },
-  });
 
   const hoverSpring = useSpring({
-    transform: hovered ? "scale(1.05)" : "scale(1)",
+    transform: hovered ? "scale(1.03)" : "scale(1)",
     config: { tension: 220, friction: 18 },
   });
 
   return (
-    <animated.div style={appear}>
+    <animated.div style={style}>
       <animated.img
         src={src}
         alt="img"
+        loading="lazy"
+        decoding="async"
         onClick={onClick}
         style={{
           ...hoverSpring,
           width: "100%",
+          display: "block",
           borderRadius: "12px",
-          transition: "box-shadow 0.3s ease",
           boxShadow: hovered
             ? "0 8px 20px rgba(0,0,0,0.25)"
             : "0 4px 10px rgba(0,0,0,0.15)",
+          transition: "box-shadow 0.3s ease",
           cursor: "pointer",
         }}
         onMouseEnter={() => setHovered(true)}
@@ -60,23 +62,23 @@ const AnimatedImage: React.FC<{ src: string; onClick: () => void }> = ({
 };
 
 const Fotos: React.FC = () => {
-  const fadeBlur = useSpring({
-    from: { opacity: 0, filter: "blur(10px)" },
-    to: { opacity: 1, filter: "blur(0px)" },
-    config: { tension: 100, friction: 20 },
+  const fadeIn = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { tension: 80, friction: 20 },
   });
 
-  const [open, setOpen] = React.useState(false);
-  const [selectedImg, setSelectedImg] = React.useState<string | null>(null);
+  const trail = useTrail(images.length, {
+    from: { opacity: 0, transform: "translateY(40px)" },
+    to: { opacity: 1, transform: "translateY(0px)" },
+    config: { tension: 160, friction: 22 },
+    delay: 200,
+  });
 
-  const handleOpen = (src: string) => {
-    setSelectedImg(src);
-    setOpen(true);
-  };
-  const handleClose = () => setOpen(false);
+  const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
 
   return (
-    <animated.div style={fadeBlur} className="fotos-container">
+    <animated.div style={fadeIn} className="fotos-container">
       <div className="fotos-titles-container">
         <h1 className="fotos-title">Memorias del Escenario</h1>
         <h3 className="fotos-subtitle">
@@ -85,36 +87,23 @@ const Fotos: React.FC = () => {
       </div>
 
       <Masonry columns={{ xs: 2, md: 3 }} spacing={2}>
-        {images.map((img, i) => (
+        {trail.map((style, i) => (
           <div key={i}>
-            <AnimatedImage src={img} onClick={() => handleOpen(img)} />
+            <AnimatedImage
+              src={images[i]}
+              style={style}
+              onClick={() => setSelectedIndex(i)}
+            />
           </div>
         ))}
       </Masonry>
 
-      <Modal open={open} onClose={handleClose}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            outline: "none",
-          }}
-        >
-          {selectedImg && (
-            <img
-              src={selectedImg}
-              alt="preview"
-              style={{
-                maxHeight: "90vh",
-                maxWidth: "90vw",
-                borderRadius: "10px",
-              }}
-            />
-          )}
-        </Box>
-      </Modal>
+      <ImageModal
+        images={images}
+        selectedIndex={selectedIndex}
+        onClose={() => setSelectedIndex(null)}
+        onNavigate={setSelectedIndex}
+      />
     </animated.div>
   );
 };

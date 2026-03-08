@@ -6,6 +6,8 @@ import { nexo } from './nexo';
 import { elEcoDeTuVoz } from './el-eco-de-tu-voz';
 import { floresRojas } from './flores-rojas';
 import { abismos } from './abismos';
+import { utopia } from './utopia';
+import { sangreCarneYHuesos } from './sangreCarneYHuesos';
 
 export type { Song };
 export { teEncontrare, polilla, desEncontrar, nexo, elEcoDeTuVoz, floresRojas, abismos };
@@ -16,6 +18,8 @@ export const allSongs = [
   desEncontrar,
   nexo,
   elEcoDeTuVoz,
+  utopia,
   floresRojas,
-  abismos
-]; 
+  abismos,
+  sangreCarneYHuesos
+];

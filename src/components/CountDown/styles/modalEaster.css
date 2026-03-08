@@ -22,9 +22,24 @@
   padding: 32px;
   width: 100%;
   max-width: 480px;
+  @media (max-width: 768px) {
+    max-width: 320px;
+  };
   text-align: center;
   animation: easterFade 0.3s ease-in-out;
   position: relative;
+}
+
+.modal-easter-instagram {
+  display: inline-block;
+  color: #e1306c;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.modal-easter-instagram:hover {
+  opacity: 0.8;
 }
 
 .modal-easter-title {
@@ -33,14 +48,15 @@
   margin-bottom: 12px;
   background: var(--gradiant-accent);
   color: #ccc;
-  -webkit-text-fill-color: transparent;
 }
 
 .modal-easter-text {
   font-size: 1.2rem;
+  @media (max-width: 768px) {
+      font-size: 1rem;
+  };
   color: #ccc;
   margin-bottom: 20px;
-  -webkit-text-fill-color: transparent;
 }
 
 .modal-easter-eyes {

@@ -17,11 +17,20 @@ const ModalEaster: React.FC<ModalEasterProps> = ({ open, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="modal-easter-title">
-          Me encontraste!
+          ¡Me encontraste!
         </h2>
 
         <p className="modal-easter-text">
-           Manda la palabra 'aleatoridad' al instagram de POLILLA y participa por una entrada gratis
+          Manda una captura de pantalla donde nos muestres que nos encontraste junto con la palabra "estrella perdida" a nuestro{" "}
+          <a
+            href="https://www.instagram.com/polillaofficial/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="modal-easter-instagram"
+          >
+            Instagram
+          </a>
+          {" "} y participa por una entrada gratis
         </p>
 
         <div className="modal-easter-eyes">

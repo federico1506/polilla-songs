@@ -12,6 +12,16 @@ export interface Recital {
 
 export const RECITALES: Recital[] = [
   {
+    id: 0,
+    fecha: "2026-03-14",
+    lugar: "Casa Marx",
+    direccion: "Berutti 902 ",
+    descripcion: "El renacer de una polilla",
+    link_pago: "https://www.mercadopago.com.ar/money-out/transfer/dashboard#from=home_desktop&oc.component=hs_banking",
+    imagen: "/images/recital-prueba.jpg",
+    tickets_button: true,
+  },
+  {
     id: 1,
     fecha: "2025-06-27",
     lugar: "Casa Marx",
@@ -19,7 +29,7 @@ export const RECITALES: Recital[] = [
     descripcion: "Los temas de siempre y sorpresitas.",
     link_pago: "https://mpago.la/24hVMrk",
     imagen: "/images/recital1.jpg",
-    tickets_button: true,
+    tickets_button: false,
   },
   {
     id: 2,
