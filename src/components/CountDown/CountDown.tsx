@@ -115,7 +115,7 @@ export default function CountDown({
 
     return (
         <div className="cd-container">
-            <Chip label="En desarrollo" />
+            <Chip label="En desarrollo V.2" />
 
             <h1 className="cd-title" onClick={handleSecretClick} style={{ cursor: "pointer" }}>
                 {title}

@@ -1,14 +1,24 @@
+// React
 import { useEffect, useState } from "react";
+
 // Spring
 import { animated, useSpring } from "@react-spring/web";
-import { allSongs, type Song } from "../../data/songs";
-import "./styles/canciones.css";
-import { sectionWords } from "../../constants/constants";
-import polillaLogo from "../../assets/PNG POLILLA - LOGO 01.png";
 
+// Components
+import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
 
 // Utils
+import { allSongs, type Song } from "../../data/songs";
 import { lenis } from "../../types/lenis";
+import "./styles/canciones.css";
+import { sectionWords } from "../../constants/constants";
+
+// Icons
+import polillaLogo from "../../assets/PNG POLILLA - LOGO 01.png";
+import sticker3 from "../../assets/stickers/Polilla_Stickers3.png";
+
+// Styles
+import "./styles/canciones.css";
 
 const Canciones = () => {
   const [selectedSong, setSelectedSong] = useState<Song | null>(null);
@@ -63,6 +73,7 @@ const Canciones = () => {
     <div>
       <animated.div style={fadeBlur} className="songs-section">
         <div className="container">
+          <RandomStickerPlace stickerId={3} position="left" image={sticker3}  />
           <div className="canciones-container-title">
             <h2 className="canciones-title">Canciones</h2>
             <img

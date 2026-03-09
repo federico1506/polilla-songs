@@ -4,12 +4,14 @@ import React from "react";
 // Routing
 import { Link } from "react-router-dom";
 
-// UI
-import { Tooltip } from "@mui/material";
+// Components
+import { Box, Tooltip } from "@mui/material";
 import Button from "../Button/Button";
+import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
 
 // Icons
 import { FaInstagram, FaSpotify, FaTiktok, FaYoutube } from "react-icons/fa";
+import sticker5 from "../../assets/stickers/Polilla_Stickers5.png";
 
 // Utils
 import { INSTAGRAM_URL, TIKTOK_URL } from "../../constants/constants";
@@ -42,7 +44,12 @@ const ModalFollow: React.FC<ModalFollowProps> = ({ open, onClose }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <h2 className="modal-title">¡Seguinos!</h2>
+
+        <Box display={'flex'} justifyContent="center" alignItems="center" position="relative" flexDirection={'row'} gap={2}>
+            <h2 className="modal-title">¡Seguinos</h2>
+            <RandomStickerPlace stickerId={5} image={sticker5}/>
+            <h2 className="modal-title">!</h2>
+        </Box>
 
         <p className="modal-text">
           Encontranos en nuestras redes y plataformas 🎵

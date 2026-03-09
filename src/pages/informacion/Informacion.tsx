@@ -1,9 +1,15 @@
 // React Spring
 import { useSpring, animated } from "@react-spring/web";
 
+// Components
+import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
+
 // Images
 import info_imagen from "../../assets/INSTRUMENTS.webp";
 import grupo_imagen from "../../assets/fotos/foto7.webp";
+
+// Icons
+import sticker2 from "../../assets/stickers/Polilla_Stickers2.png";
 
 // Styles
 import "./styles/informacion.css";
@@ -34,6 +40,7 @@ const fadeBlur = useSpring({
 
       <div className="informacion-about-container">
         <div className="informacion-subtitle2">Sobre nosotros</div>
+        <RandomStickerPlace stickerId={2} position="bottom-left" image={sticker2} offset={2} />
 
         <div className="informacion-about-container2">
           <div className="informacion-info">

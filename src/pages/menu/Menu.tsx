@@ -7,8 +7,8 @@ import { useSpring, animated } from "@react-spring/web"
 import MenuButtons from "../../components/MenuButtons/MenuButtons"
 
 // Imagen
-import nombrePolilla from "../../assets/PNG POLILLA 01.png"
-import logoPolilla from "../../assets/PNG POLILLA - LOGO 01.png"
+import nombrePolilla from "../../assets/PNG POLILLA 02.png"
+import logoPolilla from "../../assets/PNG POLILLA - LOGO 02.png"
 
 // Wave
 import Wave from "react-wavify";
@@ -24,7 +24,7 @@ const Menu = () => {
   return (
     <section className="menu">
       <Wave
-        fill="#ffffff10"
+        fill="#a18aff"
         paused={false}
         options={{
           height: 20,

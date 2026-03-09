@@ -1,16 +1,9 @@
-// React
 import React from "react";
 import { useSpring, animated } from "@react-spring/web";
-
-// Components
 import { Modal, Box, IconButton } from "@mui/material";
-
-// Icons
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
-
-// Utils
 import { lenis } from "../../../types/lenis";
 
 interface ImageModalProps {
@@ -20,27 +13,65 @@ interface ImageModalProps {
   onNavigate: (index: number) => void;
 }
 
+// Precarga next y prev en background
+const useImagePreloader = (images: string[], currentIndex: number | null) => {
+  React.useEffect(() => {
+    if (currentIndex === null) return;
+    const toPreload = [
+      images[(currentIndex + 1) % images.length],
+      images[(currentIndex - 1 + images.length) % images.length],
+    ];
+    toPreload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [currentIndex, images]);
+};
+
 const ModalImage: React.FC<{ src: string }> = ({ src }) => {
+  const [loaded, setLoaded] = React.useState(false);
+
   const spring = useSpring({
     from: { opacity: 0, transform: "scale(0.92)" },
-    to: { opacity: 1, transform: "scale(1)" },
+    to: { opacity: loaded ? 1 : 0, transform: loaded ? "scale(1)" : "scale(0.92)" },
     config: { tension: 180, friction: 22 },
     reset: true,
   });
 
+  const skeletonSpring = useSpring({
+    opacity: loaded ? 0 : 1,
+    config: { tension: 180, friction: 22 },
+  });
+
   return (
-    <animated.img
-      src={src}
-      alt="preview"
-      style={{
-        ...spring,
-        width: "100%",
-        height: "100%",
-        objectFit: "contain",
-        borderRadius: "12px",
-        display: "block",
-      }}
-    />
+    <Box sx={{ position: "relative", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      {/* Skeleton del modal */}
+      <animated.div
+        style={{
+          ...skeletonSpring,
+          position: "absolute",
+          inset: 0,
+          borderRadius: "12px",
+          background: "linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%)",
+          backgroundSize: "200% 100%",
+          animation: "shimmer 1.4s infinite linear",
+          pointerEvents: "none",
+        }}
+      />
+      <animated.img
+        src={src}
+        alt="preview"
+        onLoad={() => setLoaded(true)}
+        style={{
+          ...spring,
+          width: "100%",
+          height: "100%",
+          objectFit: "contain",
+          borderRadius: "12px",
+          display: "block",
+        }}
+      />
+    </Box>
   );
 };
 
@@ -52,42 +83,39 @@ const ImageModal: React.FC<ImageModalProps> = ({
 }) => {
   const isOpen = selectedIndex !== null;
 
-  const handlePrev = () => {
+  useImagePreloader(images, selectedIndex);
+
+  const handlePrev = React.useCallback(() => {
     if (selectedIndex === null) return;
     onNavigate(selectedIndex === 0 ? images.length - 1 : selectedIndex - 1);
-  };
+  }, [images.length, onNavigate, selectedIndex]);
 
-  const handleNext = () => {
+  const handleNext = React.useCallback(() => {
     if (selectedIndex === null) return;
     onNavigate(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1);
-  };
+  }, [images.length, onNavigate, selectedIndex]);
 
-React.useEffect(() => {
-  if (!isOpen) return;
-
-  lenis.stop();
-
-  const handleKey = (e: KeyboardEvent) => {
-    if (e.key === "ArrowLeft") handlePrev();
-    if (e.key === "ArrowRight") handleNext();
-    if (e.key === "Escape") onClose();
-  };
-
-  window.addEventListener("keydown", handleKey);
-
-  return () => {
-    window.removeEventListener("keydown", handleKey);
-    lenis.start();
-  };
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [isOpen, lenis]);
+  React.useEffect(() => {
+    if (!isOpen) return;
+    lenis.stop();
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      lenis.start();
+    };
+  }, [isOpen, handlePrev, handleNext, onClose]);
 
   React.useEffect(() => {
     document.body.classList.toggle("modal-open", !!isOpen);
   }, [isOpen]);
 
   return (
-    <Modal open={isOpen} onClose={onClose} >
+    <Modal open={isOpen} onClose={onClose}>
       <Box
         sx={{
           position: "fixed",
@@ -138,7 +166,6 @@ React.useEffect(() => {
             display: "flex",
             alignItems: "center",
             gap: 3,
-            mt: 2,
           }}
         >
           <IconButton
@@ -161,9 +188,7 @@ React.useEffect(() => {
               textAlign: "center",
             }}
           >
-            {selectedIndex !== null
-              ? `${selectedIndex + 1} / ${images.length}`
-              : ""}
+            {selectedIndex !== null ? `${selectedIndex + 1} / ${images.length}` : ""}
           </Box>
 
           <IconButton

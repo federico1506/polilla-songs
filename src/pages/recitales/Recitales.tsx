@@ -10,6 +10,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import { IconButton, Tooltip } from "@mui/material";
+import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
 
 // Constants
 import { RECITALES } from "./constants/constants";
@@ -17,12 +18,14 @@ import { RECITALES } from "./constants/constants";
 // Icons
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import sticker1 from "../../assets/stickers/Polilla_Stickers1.png";
 
 // Spring
 import { animated, useSpring } from "@react-spring/web";
 
 // Utils
-import { ALIAS_MERCADO_PAGO } from "../../constants/constants";
+import { ALIAS_MERCADO_PAGO, INSTAGRAM_URL } from "../../constants/constants";
+
 
 const Recitales = () => {
   const [copied, setCopied] = useState(false);
@@ -69,28 +72,29 @@ const Recitales = () => {
         </AccordionSummary>
         <AccordionDetails>
           <div className="recitales-info">
-          <p className="recitales-info-text">
-            Para comprar tu entrada del recital, hace click en el siguiente botón
-            para copiar el Alias (polillabanda.mp), enviar el monto estimado de la última fecha
-            disponible y mandar comprobante al{" "}
-            <a
-              className="recitales-instagram-link"
-              href="https://instagram.com/polilla"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>.
-          </p>
-          <Tooltip title={copied ? "¡Copiado!" : null} arrow open={copied}>
-            <IconButton
-              className="recital-info-button"
-              onClick={handleCopyAlias}
-            >
-              <ContentCopyIcon sx={{ height: 20 }} />
-            </IconButton>
-          </Tooltip>
-          </div>
+            <p className="recitales-info-text">
+              Para comprar tu entrada del recital, hace click en el siguiente botón
+              para copiar el Alias (polillabanda.mp), a nombre de Juan Pablo Garraza,
+              enviar el monto estimado de la última fecha disponible y mandar comprobante al{" "}
+              <a
+                className="recitales-instagram-link"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>.
+            </p>
+
+            <Tooltip title={copied ? "¡Copiado!" : null} arrow open={copied}>
+              <IconButton
+                className="recital-info-button"
+                onClick={handleCopyAlias}
+              >
+                <ContentCopyIcon sx={{ height: 20 }} />
+              </IconButton>
+            </Tooltip>
+        </div>
         </AccordionDetails>
       </Accordion>
       <div className="recitales-list">
@@ -147,6 +151,7 @@ const Recitales = () => {
           </div>
         ))}
       </div>
+       <RandomStickerPlace stickerId={1} position="bottom-right"     image={sticker1} />
     </animated.div>
   );
 };

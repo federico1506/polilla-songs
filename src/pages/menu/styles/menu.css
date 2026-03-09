@@ -96,15 +96,15 @@
 }
 
 @keyframes glitchRGB {
-  0% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(-2px 0 0 var(--accent-color-3)); }
-  20% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(-2px 0 0 var(--accent-color-3)); }
+  0% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(2px 0 0 var(--accent-color-3)); }
+  20% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(2px 0 0 var(--accent-color-3)); }
 
-  21% { filter: drop-shadow(6px 1px 0 var(--accent-red)) drop-shadow(-3px -1px 0 var(--text-primary)); }
-  22% { filter: drop-shadow(-6px -1px 0 var(--text-primary)) drop-shadow(3px 1px 0 var(--accent-red)); }
+  21% { filter: drop-shadow(6px 1px 0 var(--accent-red)) drop-shadow(4px -1px 0 var(--text-primary)); }
+  22% { filter: drop-shadow(-6px -1px 0 var(--text-primary)) drop-shadow(4px 1px 0 var(--accent-red)); }
 
-  23% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(-2px 0 0 var(--accent-color-3)); }
+  23% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(2px 0 0 var(--accent-color-3)); }
 
-  100% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(-2px 0 0 var(--accent-color-3)); }
+  100% { filter: drop-shadow(6px 0 0 var(--accent-color)) drop-shadow(2px 0 0 var(--accent-color-3)); }
 }
 
 .menu {

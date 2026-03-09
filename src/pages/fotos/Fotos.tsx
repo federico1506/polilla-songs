@@ -4,12 +4,17 @@ import React from "react";
 // Components
 import Masonry from "@mui/lab/Masonry";
 import ImageModal from "./components/ImageModal";
+import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
+
+// Icons
+import sticker4 from "../../assets/stickers/Polilla_Stickers4.png";
 
 // Spring
 import { useSpring, animated, useTrail } from "@react-spring/web";
 
 // Styles
 import "./styles/fotos.css";
+import { Box } from "@mui/material";
 
 const images = [
   new URL("../../assets/fotos/foto1.webp", import.meta.url).href,
@@ -21,6 +26,15 @@ const images = [
   new URL("../../assets/fotos/foto7.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto8.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto9.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto10.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto11.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto12.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto13.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto14.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto15.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto16.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto17.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto18.webp", import.meta.url).href,
 ];
 
 const AnimatedImage: React.FC<{
@@ -81,9 +95,13 @@ const Fotos: React.FC = () => {
     <animated.div style={fadeIn} className="fotos-container">
       <div className="fotos-titles-container">
         <h1 className="fotos-title">Memorias del Escenario</h1>
+        <Box display={'flex'} alignItems="center" gap={1}>
         <h3 className="fotos-subtitle">
           Recitales, momentos <span>especiales</span>
         </h3>
+        <RandomStickerPlace stickerId={4} image={sticker4} size={60} />
+        </Box>
+
       </div>
 
       <Masonry columns={{ xs: 2, md: 3 }} spacing={2}>
