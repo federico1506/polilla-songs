@@ -15,7 +15,7 @@ export interface Recital {
 export const RECITALES: Recital[] = [
   {
     id: 0,
-    fecha: "2026-03-14",
+    fecha: "2026-03-14T00:00:00",
     lugar: "Casa Marx",
     direccion: "Berutti 902 ",
     descripcion: "El renacer de una polilla",
@@ -25,9 +25,9 @@ export const RECITALES: Recital[] = [
     imagen: "/images/recital-prueba.jpg",
     tickets_button: true,
   },
-  {
+{
     id: 1,
-    fecha: "2025-06-27",
+    fecha: "2025-06-27T00:00:00",
     lugar: "Casa Marx",
     direccion: "Berutti 902",
     descripcion: "Los temas de siempre y sorpresitas.",
@@ -37,7 +37,7 @@ export const RECITALES: Recital[] = [
   },
   {
     id: 2,
-    fecha: "2025-06-14",
+    fecha: "2025-06-14T00:00:00",
     lugar: "Patio Espiral",
     direccion: "Bolivia 650",
     descripcion: "POLILLA y MARGINADOS. 3 bandas para llenarte de riffs.",
@@ -47,7 +47,7 @@ export const RECITALES: Recital[] = [
   },
   {
     id: 3,
-    fecha: "2024-12-06",
+    fecha: "2024-12-06T00:00:00",
     lugar: "Crisálida Fest",
     direccion: "Moreno 223",
     link_pago: "https://mpago.la/24hVMrk",

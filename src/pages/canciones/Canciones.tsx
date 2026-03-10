@@ -101,7 +101,7 @@ const Canciones = () => {
       </animated.div>
 
       {selectedSong && (
-        <div className="modal-overlay" onClick={closeSongModal}>
+        <div className="modal-overlay" onClick={closeSongModal} data-lenis-prevent>
           <div
             className="modal-content"
             onClick={(e) => e.stopPropagation()}
