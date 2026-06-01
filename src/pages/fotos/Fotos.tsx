@@ -15,9 +15,12 @@ import { Box } from "@mui/material";
 const images = [
   new URL("../../assets/fotos/foto19.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto21.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto26.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto22.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto23.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto24.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto27.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto25.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto20.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto1.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto2.webp", import.meta.url).href,
