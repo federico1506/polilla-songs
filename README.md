@@ -50,13 +50,13 @@ git clone [url-del-repositorio]
 cd polilla-songs
 
 # Instalar dependencias
-npm install
+pnpm install
 
 # Ejecutar en modo desarrollo
-npm run dev
+pnpm run dev
 
 # Construir para producción
-npm run build
+pnpm run build
 ```
 
 ## 🎯 Características

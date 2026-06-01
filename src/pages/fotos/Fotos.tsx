@@ -4,10 +4,6 @@ import React from "react";
 // Components
 import Masonry from "@mui/lab/Masonry";
 import ImageModal from "./components/ImageModal";
-import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
-
-// Icons
-import sticker4 from "../../assets/stickers/Polilla_Stickers4.png";
 
 // Spring
 import { useSpring, animated, useTrail } from "@react-spring/web";
@@ -17,6 +13,12 @@ import "./styles/fotos.css";
 import { Box } from "@mui/material";
 
 const images = [
+  new URL("../../assets/fotos/foto19.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto21.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto22.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto23.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto24.webp", import.meta.url).href,
+  new URL("../../assets/fotos/foto20.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto1.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto2.webp", import.meta.url).href,
   new URL("../../assets/fotos/foto3.webp", import.meta.url).href,
@@ -99,7 +101,6 @@ const Fotos: React.FC = () => {
         <h3 className="fotos-subtitle">
           Recitales, momentos <span>especiales</span>
         </h3>
-        <RandomStickerPlace stickerId={4} image={sticker4} size={60} />
         </Box>
 
       </div>

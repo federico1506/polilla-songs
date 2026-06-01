@@ -7,7 +7,6 @@ export interface Recital {
   precio_anticipada?: string;
   precio_puerta?: string;
   link_pago: string;
-  imagen?: string;
   tickets_button?: boolean;
   surprise?: boolean;
 }
@@ -16,23 +15,19 @@ export const RECITALES: Recital[] = [
   {
     id: 0,
     fecha: "2026-03-14T00:00:00",
-    lugar: "Casa Marx",
+    lugar: "Casa Cultural Marx - 2da Edición",
     direccion: "Berutti 902 ",
     descripcion: "El renacer de una polilla",
-    precio_anticipada: "$5000",
-    precio_puerta: "$7000",
     link_pago: "https://www.mercadopago.com.ar/money-out/transfer/dashboard#from=home_desktop&oc.component=hs_banking",
-    imagen: "/images/recital-prueba.jpg",
-    tickets_button: true,
+    tickets_button: false,
   },
 {
     id: 1,
     fecha: "2025-06-27T00:00:00",
-    lugar: "Casa Marx",
+    lugar: "Casa Cultural Marx",
     direccion: "Berutti 902",
     descripcion: "Los temas de siempre y sorpresitas.",
     link_pago: "https://mpago.la/24hVMrk",
-    imagen: "/images/recital1.jpg",
     tickets_button: false,
   },
   {
@@ -42,7 +37,6 @@ export const RECITALES: Recital[] = [
     direccion: "Bolivia 650",
     descripcion: "POLILLA y MARGINADOS. 3 bandas para llenarte de riffs.",
     link_pago: "https://mpago.la/24hVMrk",
-    imagen: "/images/recital2.jpg",
     tickets_button: false,
   },
   {
@@ -52,6 +46,5 @@ export const RECITALES: Recital[] = [
     direccion: "Moreno 223",
     link_pago: "https://mpago.la/24hVMrk",
     descripcion: "Noche de Máscaras",
-    imagen: "/images/recital3.jpg",
   },
 ];

@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../pages/menu/styles/Menu.css"
+import "../../pages/menu/styles/menu.css"
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import ModalFollow from '../ModalFollow/ModalFollow'

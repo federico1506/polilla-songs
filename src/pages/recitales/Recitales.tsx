@@ -10,7 +10,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import { IconButton, Tooltip } from "@mui/material";
-import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
 
 // Constants
 import { RECITALES } from "./constants/constants";
@@ -18,7 +17,6 @@ import { RECITALES } from "./constants/constants";
 // Icons
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import sticker1 from "../../assets/stickers/Polilla_Stickers1.png";
 
 // Spring
 import { animated, useSpring } from "@react-spring/web";
@@ -151,7 +149,6 @@ const Recitales = () => {
           </div>
         ))}
       </div>
-       <RandomStickerPlace stickerId={1} position="bottom-right"     image={sticker1} />
     </animated.div>
   );
 };

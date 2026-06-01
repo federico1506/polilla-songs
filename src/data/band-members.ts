@@ -30,9 +30,4 @@ export const bandMembers: BandMember[] = [
     role: "Primer Guitarrista",
     instrument: "Guitarra"
   },
-  {
-    name: "Baltazar",
-    role: "Segundo Guitarrista",
-    instrument: "Guitarra"
-  }
 ];

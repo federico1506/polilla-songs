@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 // Spring
 import { animated, useSpring } from "@react-spring/web";
 
-// Components
-import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
-
 // Utils
 import { allSongs, type Song } from "../../data/songs";
 import { lenis } from "../../types/lenis";
@@ -14,8 +11,7 @@ import "./styles/canciones.css";
 import { sectionWords } from "../../constants/constants";
 
 // Icons
-import polillaLogo from "../../assets/PNG POLILLA - LOGO 01.png";
-import sticker3 from "../../assets/stickers/Polilla_Stickers3.png";
+import polillaLogo from "../../assets/polilla-logo-01.png";
 
 // Styles
 import "./styles/canciones.css";
@@ -73,7 +69,6 @@ const Canciones = () => {
     <div>
       <animated.div style={fadeBlur} className="songs-section">
         <div className="container">
-          <RandomStickerPlace stickerId={3} position="left" image={sticker3}  />
           <div className="canciones-container-title">
             <h2 className="canciones-title">Canciones</h2>
             <img

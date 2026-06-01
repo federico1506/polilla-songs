@@ -7,11 +7,9 @@ import { Link } from "react-router-dom";
 // Components
 import { Box, Tooltip } from "@mui/material";
 import Button from "../Button/Button";
-import RandomStickerPlace from "../../components/RandomStickerPlace/RandomStickerPlace";
 
 // Icons
 import { FaInstagram, FaSpotify, FaTiktok, FaYoutube } from "react-icons/fa";
-import sticker5 from "../../assets/stickers/Polilla_Stickers5.png";
 
 // Utils
 import { INSTAGRAM_URL, TIKTOK_URL } from "../../constants/constants";
@@ -47,7 +45,6 @@ const ModalFollow: React.FC<ModalFollowProps> = ({ open, onClose }) => {
 
         <Box display={'flex'} justifyContent="center" alignItems="center" position="relative" flexDirection={'row'} gap={2}>
             <h2 className="modal-title">¡Seguinos</h2>
-            <RandomStickerPlace stickerId={5} image={sticker5}/>
             <h2 className="modal-title">!</h2>
         </Box>
 

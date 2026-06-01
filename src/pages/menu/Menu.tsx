@@ -7,8 +7,8 @@ import { useSpring, animated } from "@react-spring/web"
 import MenuButtons from "../../components/MenuButtons/MenuButtons"
 
 // Imagen
-import nombrePolilla from "../../assets/PNG POLILLA 02.png"
-import logoPolilla from "../../assets/PNG POLILLA - LOGO 02.png"
+import nombrePolilla from "../../assets/polilla-02.png"
+import logoPolilla from "../../assets/polilla-logo-02.png"
 
 // Wave
 import Wave from "react-wavify";

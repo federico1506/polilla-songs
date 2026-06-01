@@ -5,7 +5,7 @@ import React from "react";
 import type { LoadingPolillaProps } from "../../types/types";
 
 // Images
-import loadingImage from '../../assets/PNG POLILLA - LOGO 01.png';
+import loadingImage from '../../assets/polilla-logo-01.png';
 
 const LoadingPolilla = ({loading}: LoadingPolillaProps) => {
     const [progress, setProgress] = React.useState(0);
